@@ -7,6 +7,7 @@ function SearchBar() {
   const [jsonData, setJsonData ] = useState(null);
   const [url, setUrl] = useState(null);
   const [heading, setHeading] = useState("Upfit");
+  const [processing, setProcessing] = useState(false);
 
   const switchUpfit = (event) => {
     event.preventDefault();
@@ -31,16 +32,18 @@ function SearchBar() {
   const fetchData = async (query) => {
     try {
       if(heading === "Upfit"){
-        const response = await axios.get(`http://127.0.0.1:8001/image-classify/?query=${query}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}image-classify/?query=${query}`);
         console.log(response.data)
         setUrl(query);
         setJsonData(JSON.parse(response.data));
+        setProcessing(false);
       }
       if(heading === "Floorplan"){
-        const response = await axios.get(`http://127.0.0.1:8001/floorplan-classify/?query=${query}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}floorplan-classify/?query=${query}`);
         console.log(response.data)
         setUrl(query);
         setJsonData(JSON.parse(response.data));
+        setProcessing(false);
       }
       
     } catch (error) {
@@ -53,6 +56,9 @@ function SearchBar() {
     console.log(`Search query: ${query}`);
     if(query){
       fetchData(query); 
+      setProcessing(true);
+      setUrl(null);
+      setJsonData(null);
     }else{
       alert("Search for something");
     }
@@ -72,6 +78,7 @@ function SearchBar() {
         <input type="text" value={query} onChange={handleInputChange} placeholder="Enter Image URL here ..." className="search-input"/>
         <button type="submit" className="search-button">Classify</button>
       </form>
+      {processing && <div>Processing ...</div>}
       <div className="image-json">
         {/* { <div>Please wait</div>} */}
         {url && <img src={url}></img>}
