@@ -32,14 +32,14 @@ function SearchBar() {
   const fetchData = async (query) => {
     try {
       if(heading === "Upfit"){
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}image-classify/?query=${query}`);
+        const response = await axios.get(`http://3.94.54.48:8000/image-classify/?query=${query}`);
         console.log(response.data)
         setUrl(query);
         setJsonData(JSON.parse(response.data));
         setProcessing(false);
       }
       if(heading === "Floorplan"){
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}floorplan-classify/?query=${query}`);
+        const response = await axios.get(`http://3.94.54.48:8000/floorplan-classify/?query=${query}`);
         console.log(response.data)
         setUrl(query);
         setJsonData(JSON.parse(response.data));
@@ -64,7 +64,6 @@ function SearchBar() {
     }
     // setQuery("");
   };
-  console.log(process.env.REACT_APP_API_URL);
 
   return (
     <div className="page">
