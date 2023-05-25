@@ -1,0 +1,100 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body{
+  place-items: unset !important;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.search-bar{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-self: center;
+}
+
+.search-input{
+  width: 300px !important;
+  height: 45px;
+}
+
+.search-button{
+  height: 45px;
+}
+
+button[type=submit]{
+  margin: 9px;
+}
+
+.image-json{
+  display: flex;
+  flex-direction: row; 
+  width: 90%;
+  gap: 40px;
+}
+
+img{
+  max-width: 70%;
+}
+
+.display-area{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%; 
+}
+
+.display-box{
+  padding: 20px;
+  border: 3px dotted black;
+  height: fit-content;
+}
+
+.display-key{
+  font-weight: bold;
+}
+
+.page{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 90px;
+}
+
+.switcher-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+}
+
+.switcher{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.switcher-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:80px;
+  height: 20px;
+  border: 2px black solid;
+  cursor: pointer;
+}
