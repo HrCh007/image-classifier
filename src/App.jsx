@@ -33,14 +33,14 @@ function SearchBar() {
   const fetchData = async (query) => {
     try {
       if(heading === "Upfit"){
-        const response = await axios.get(`http://3.94.54.48:8000/image-classify/?query-parameter=${query}`);
+        const response = await axios.get(`${API_URL}image-classify/?query-parameter=${query}`);
         console.log(response.data)
         setUrl(query);
         setJsonData(JSON.parse(response.data));
         setProcessing(false);
       }
       if(heading === "Floorplan"){
-        const response = await axios.get(`http://3.94.54.48:8000/floorplan-classify/?query-parameter=${query}`);
+        const response = await axios.get(`${API_URL}floorplan-classify/?query-parameter=${query}`);
         console.log(response.data)
         setUrl(query);
         setJsonData(JSON.parse(response.data));
@@ -65,7 +65,7 @@ function SearchBar() {
     }
     // setQuery("");
   };
-  console.log(API_URL, import.meta.env.MODE);
+  
   return (
     <div className="page">
       <div className="switcher-header">
