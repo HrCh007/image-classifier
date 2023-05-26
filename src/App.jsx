@@ -39,7 +39,7 @@ function SearchBar() {
         setProcessing(false);
       }
       if(heading === "Floorplan"){
-        const response = await axios.get(`http://3.94.54.48:8000/floorplan-classify/?query=${query}`);
+        const response = await axios.get(`http://3.94.54.48:8000/floorplan-classify/?query-parameter=${query}`);
         console.log(response.data)
         setUrl(query);
         setJsonData(JSON.parse(response.data));
