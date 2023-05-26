@@ -8,6 +8,7 @@ function SearchBar() {
   const [url, setUrl] = useState(null);
   const [heading, setHeading] = useState("Upfit");
   const [processing, setProcessing] = useState(false);
+  const API_URL = process.env.REACT_APP_API_URL;
 
   const switchUpfit = (event) => {
     event.preventDefault();
@@ -64,7 +65,7 @@ function SearchBar() {
     }
     // setQuery("");
   };
-
+  console.log(API_URL);
   return (
     <div className="page">
       <div className="switcher-header">
