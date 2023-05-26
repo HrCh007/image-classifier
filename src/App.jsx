@@ -32,7 +32,7 @@ function SearchBar() {
   const fetchData = async (query) => {
     try {
       if(heading === "Upfit"){
-        const response = await axios.get(`http://3.94.54.48:8000/image-classify/?query=${query}`);
+        const response = await axios.get(`http://3.94.54.48:8000/image-classify/?query-parameter=${query}`);
         console.log(response.data)
         setUrl(query);
         setJsonData(JSON.parse(response.data));
