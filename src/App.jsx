@@ -65,7 +65,7 @@ function SearchBar() {
     }
     // setQuery("");
   };
-  console.log(API_URL);
+  console.log(API_URL, import.meta.env.MODE);
   return (
     <div className="page">
       <div className="switcher-header">
