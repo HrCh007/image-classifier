@@ -33,10 +33,12 @@ function SearchBar() {
   const fetchData = async (query) => {
     try {
       if(heading === "Upfit"){
-        const response = await axios.get(`${API_URL}image-classify/?query-parameter=${query}`);
+        const response = await axios.post("https://ujjwqw1ev8.execute-api.us-east-1.amazonaws.com/TestModel/modeltestapi",{
+          "url": query
+        });    //(`${API_URL}image-classify/?query-parameter=${query}`);
         console.log(response.data)
         setUrl(query);
-        setJsonData(JSON.parse(response.data));
+        setJsonData((response.data));
         setProcessing(false);
       }
       if(heading === "Floorplan"){
