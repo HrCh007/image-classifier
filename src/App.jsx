@@ -33,7 +33,7 @@ function SearchBar() {
   const fetchData = async (query) => {
     try {
       if(heading === "Upfit"){
-        const response = await axios.post("https://ujjwqw1ev8.execute-api.us-east-1.amazonaws.com/TestModel/modeltestapi",{
+        const response = await axios.post(API_URL,{
           "url": query
         });    //(`${API_URL}image-classify/?query-parameter=${query}`);
         console.log(response.data)
@@ -42,7 +42,7 @@ function SearchBar() {
         setProcessing(false);
       }
       if(heading === "Floorplan"){
-        const response = await axios.get(`${API_URL}floorplan-classify/?query-parameter=${query}`);
+        const response = await axios.get(`http://127.0.0.1:8001/floorplan-classify/?query-parameter=${query}`)//(`${API_URL}floorplan-classify/?query-parameter=${query}`);
         console.log(response.data)
         setUrl(query);
         setJsonData(JSON.parse(response.data));
